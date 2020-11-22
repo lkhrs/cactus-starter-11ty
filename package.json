@@ -1,0 +1,19 @@
+{
+  "name": "11ty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx @11ty/eleventy --serve --config=eleventy.config.js",
+    "production": "npx @11ty/eleventy --config=eleventy.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1",
+    "eleventy-plugin-lazyimages": "^2.1.0",
+    "eleventy-plugin-tailwindcss": "^0.2.5"
+  },
+  "dependencies": {}
+}
