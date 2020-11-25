@@ -13,28 +13,26 @@ eleventyComputed:
         <h1 class="page-title">{{ title }}</h1>
 
         <div class="content">
+
+            <h2>A boilerplate template built with <a href="https://www.11ty.dev/docs/">Eleventy</a> and <a href="https://tailwindcss.com">TailwindCSS</a>.</h2>
+            <p>Initially based on <a href="https://github.com/josephdyer/skeleventy" target="_blank">Skeleventy</a>, I wanted a simple boilerplate that included the latest version of Tailwind and was easy to update. A lot of the template code is from Skeleventy.</p>
             
-            <h1>{{ site.name }}</h1>
-
-            <p>A skeleton boilerplate built with <a href="https://www.11ty.dev/docs/">Eleventy</a> and <a href="https://tailwindcss.com">TailwindCSS</a>.</p>
-
-            <h2 class="text-3xl p-96">Features</h2>
-
-            <ul class="mb-12 list-disc pl-4 dark:bg-black">
-                <li>Build sites faster with the power of Eleventy, TailwindCSS and SCSS</li>
-                <li><a href="https://laravel-mix.com/docs/5.0/basic-example">Laravel Mix</a> (webpack) to watch, concatenate and compile styles and scripts</li>
-                <li><a href="https://www.purgecss.com/">Purgecss</a> to remove any unused CSS</li>
-                <li>HTML minifier</li>
-                <li>ES6 support with Babel</li>
-                <li>SEO friendly pages (including Open Graph and Twitter meta)</li>
-                <li>Image lazyloading</li>
-                <li>A simple blog with categories and featured images</li>
+            <h2>Features</h2>
+            <ul>
+                <li><a href="https://github.com/dafiulh/eleventy-plugin-tailwindcss">eleventy-plugin-tailwindcss</a> which includes Tailwind, autoprefixer, minify, and PostCSS</li>
+                <li><a href="https://github.com/liamfiddler/eleventy-plugin-lazyimages">eleventy-plugin-lazyimages</a> for nice lazy image loading</li>
+                <li>Logo configurable in <code>eleventy.config.js</code>, will show text if logo.svg is removed from config</li>
+                <li>Site title configurable in <code>eleventy.config.js</code></li>
+                <li>Nav configurable in <code>site/globals/navigation.json</code></li>
             </ul>
-
-            <h2 class="text-3xl">Want to give it a spin?</h2>
-
-            <p>Check out the <a href="https://github.com/josephdyer/skeleventy">full documentation</a> on how to get started.</p>
-
+            
+            <h2>Todo</h2>
+            <ul>
+                <li>Mobile nav</li>
+                <li>Desktop nav with dropdowns</li>
+                <li>Build a blog view</li>
+                <li>Contact form</li>
+            </ul>
         </div>
 
     </section>

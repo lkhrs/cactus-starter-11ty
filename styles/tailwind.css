@@ -1,9 +1,38 @@
 @tailwind base;
 
-.change {
-  color: transparent;
-}
-
 @tailwind components;
 
 @tailwind utilities;
+
+/* Colors */
+
+main a, footer p a {
+  @apply border-gray-300;
+}
+code {
+  @apply bg-gray-300;
+}
+
+/* Some defaults for styling.  */
+
+h1 {
+  @apply text-4xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h1, h2, p {
+  @apply mb-4;
+}
+main a, footer p a {
+  @apply border-b-2;
+}
+main {
+  @apply mx-auto max-w-4xl px-4;
+}
+main ul {
+  @apply mb-8 list-disc pl-5;
+}
+code {
+  @apply rounded;
+}
