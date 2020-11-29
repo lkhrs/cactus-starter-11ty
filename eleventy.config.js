@@ -36,7 +36,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("js")
     eleventyConfig.addPassthroughCopy("images")
     eleventyConfig.addPassthroughCopy("robots.txt")
-
+    eleventyConfig.addPassthroughCopy({
+        "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
+      });
     // Plugins
     eleventyConfig.addPlugin(lazyImagesPlugin);
     eleventyConfig.addPlugin(pluginTailwindCSS, {

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/css/tailwind.css"/>
 
     {# include scripts #}
-
+    <script src="/js/alpine.js" defer></script>
     {# include social meta tags #}
     {% include "components/social-meta.njk" %}
 
@@ -34,6 +34,8 @@
 
         {# include header #}
         {% include "components/header.njk" %}
+            {# include mobile nav #}
+    {% include "components/mobile-nav.njk" %}
 
         {# include content #}
         {{ content | safe }}
@@ -43,8 +45,6 @@
 
     </div>
 
-    {# include mobile nav #}
-    {% include "components/mobile-nav.njk" %}
 
 </body>
 </html>
