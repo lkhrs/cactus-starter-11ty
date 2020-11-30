@@ -40,7 +40,10 @@ module.exports = function (eleventyConfig) {
         "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
       });
     // Plugins
-    eleventyConfig.addPlugin(lazyImagesPlugin);
+    eleventyConfig.addPlugin(lazyImagesPlugin, {
+        preferNativeLazyLoad: 'true',
+        cacheFile: '.lazyimages.json',
+    });
     eleventyConfig.addPlugin(pluginTailwindCSS, {
     src: "styles/tailwind.css",
     dest: "css",
