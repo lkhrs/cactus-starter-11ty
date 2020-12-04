@@ -1,4 +1,4 @@
-const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
+const Image = require("@11ty/eleventy-img");
  
 module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./_tmp/style.css");
@@ -46,10 +46,36 @@ module.exports = function (eleventyConfig) {
         "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
       });
     // Plugins
-    eleventyConfig.addPlugin(lazyImagesPlugin, {
-        preferNativeLazyLoad: 'true',
-        cacheFile: '.lazyimages.json',
-    });
+
+    // Eleventy-img config
+    eleventyConfig.addNunjucksAsyncShortcode("Image", async function(src, alt) {
+        if(alt === undefined) {
+          // You bet we throw an error on missing alt (alt="" works okay)
+          throw new Error(`Missing \`alt\` on Image from: ${src}`);
+        }
+    
+        let stats = await Image(src, {
+          widths: [350, null],
+          formats: ['webp', 'jpeg']
+        });
+        let lowestSrc = stats[outputFormat][0];
+        let sizes = "100vw"; // Make sure you customize this!
+    
+        // Iterate over formats and widths
+        return `<picture>
+          ${Object.values(stats).map(imageFormat => {
+            return `  <source type="image/${imageFormat[0].format}" srcset="${imageFormat.map(entry => `${entry.url} ${entry.width}w`).join(", ")}" sizes="${sizes}">`;
+          }).join("\n")}
+            <img
+              src="${lowestSrc.url}"
+              width="${lowestSrc.width}"
+              height="${lowestSrc.height}"
+              alt="${alt}"
+              loading="lazy">
+          </picture>`;
+        });
+
+    // Template formats
     return {
         templateFormats: ["md", "njk"],
         markdownTemplateEngine: 'njk',
