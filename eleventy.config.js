@@ -1,7 +1,13 @@
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
-const pluginTailwindCSS = require("eleventy-plugin-tailwindcss");
  
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addWatchTarget("./_tmp/style.css");
+
+  eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
+
+  eleventyConfig.addShortcode("version", function () {
+    return String(Date.now());
+  });
     // General
     // Add a readable date formatter filter to Nunjucks
     eleventyConfig.addFilter("dateDisplay", require("./filters/dates.js"))
@@ -43,13 +49,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(lazyImagesPlugin, {
         preferNativeLazyLoad: 'true',
         cacheFile: '.lazyimages.json',
-    });
-    eleventyConfig.addPlugin(pluginTailwindCSS, {
-    src: "styles/tailwind.css",
-    dest: "css",
-    keepFolderStructure: false,
-    minify: true,
-    autoprefixer: true,
     });
     return {
         templateFormats: ["md", "njk"],

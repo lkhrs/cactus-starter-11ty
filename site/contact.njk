@@ -8,7 +8,7 @@ title: Contact Us
 
 <main id="main" class="main inner flex flex-1 flex-col py-10 lg:py-20 focus:outline-none" tabindex="-1">
 
-    <article id="container-centre" class="column centre flex-1">
+    <article id="container" class="column centre flex-1">
 
         <header>
             <h1 class="text-4xl pb-5">{{ title }}</h1>
@@ -17,41 +17,24 @@ title: Contact Us
         <div class="">
 
             <p>Tell us how great we are in the form below.</p>
-
-            <form class="form">
-
-                {# this form doesn't work - it's just a nice boilerplate to get you up and running #}
-                {# uses HTML5 validation #}
-
-                {# if you add a class of 'required' to the row, you'll see the label will change to (required) #}
-                {# opinionated form UX - but it's nice and quick to see at glance what fields are required/optional #}
-                <div class="row required">
-                    <label for="name">Name</label>
-                    <input class="input" id="name" type="text" name="name" autocomplete="name" required>
+            <!-- All this form needs is an action URL. -->
+            <form action="" class="pageclip-form grid gap-6 w-full md:w-auto" method="post">
+                <!-- Replace these inputs with your own. Make sure they have a "name" attribute! -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input class="border-2 rounded-xl p-2 inline-grid" type="text" name="firstname" placeholder="First Name" required />
+                    <input class="border-2 rounded-xl p-2 inline-grid" type="text" name="lastname" placeholder="Last Name" required />
                 </div>
-
-                <div class="row required">
-                    <label for="email">Email</label>
-                    <input class="input" id="email" type="text" name="email" autocapitalize="off" autocomplete="email" required>
+                <div class="grid grid-cols-1 gap-6">
+                    <input class="border-2 rounded-xl p-2" type="email" name="email" placeholder="Your Email" required />
+                    <input type="hidden" name="email-2" />
+                    <input class="border-2 rounded-xl p-2" type="tel" name="phone" placeholder="Your Phone Number" required />
                 </div>
-
-                <div class="row required">
-                    <label for="phone">Phone</label>
-                    <input class="input" id="phone" type="text" name="phone" autocomplete="tel" required>
-                </div>
-
-                {# this field label will show as (optional) as the required class has been left off #}
-                <div class="row">
-                    <label for="message">Message</label>
-                    <textarea class="textarea" id="message" name="message"></textarea>
-                </div>
-             
-                <div class="row">
-                    <button class="inline-block rounded py-4 px-6 text-white font-bold bg-gray-500 hover:bg-gray-400" type="submit">Send message!</button>
-                </div>
-
-            </form>
-
+                <textarea class="border-2 rounded-xl p-2" name="body" placeholder="Write your message..."></textarea>
+              
+                <button type="submit" class="pageclip-form__submit button">
+                  <span>Send</span>
+                </button>
+              </form>
     </article>
 
 </main>
