@@ -1,10 +1,20 @@
-# A boilerplate template built with Eleventy and TailwindCSS.
+# A boilerplate template built with Eleventy and TailwindCSS
 
 Based on Skeleventy, I wanted a simple boilerplate that included the latest version of Tailwind and was easy to update.
 
-# Todo
+## Todo
 
 - ~~Mobile nav~~
 - Desktop nav with dropdowns
 - Build a blog view
-- Contact form
+- ~~Contact form~~
+- Add [eleventy-img](https://github.com/11ty/eleventy-img)
+
+## Building and Running 
+
+**Live dev environment:**
+1. Run `npm run production`
+2. Run `npm run dev`
+
+**Production:**
+1. Run `npm run production` 
