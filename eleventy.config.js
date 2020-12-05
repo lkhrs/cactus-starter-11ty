@@ -40,8 +40,11 @@ module.exports = function (eleventyConfig) {
 
     // Include our static assets
     eleventyConfig.addPassthroughCopy("js")
-    eleventyConfig.addPassthroughCopy("images")
     eleventyConfig.addPassthroughCopy("robots.txt")
+    // Pass through our SVGs
+    eleventyConfig.addPassthroughCopy("images/svg")
+    // Pass through our icons
+    eleventyConfig.addPassthroughCopy("images/icons")
     eleventyConfig.addPassthroughCopy({
         "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
       });
@@ -55,11 +58,14 @@ module.exports = function (eleventyConfig) {
         }
     
         let stats = await Image(src, {
-          widths: [350, null],
-          formats: ['webp', 'jpeg']
+          // Let's cap the image width. The lower number is the minimum image size which shows on mobile, and the higher number is the highest size. Use the highest size to cap how big the image is (sometimes I throw in 10MB images from unsplash and don't think about it)
+          widths: [320, 1024, 1500],
+          formats: ['webp', 'jpeg'],
+          urlPath: "/images/",
+        outputDir: "./_site/images/",
         });
-        let lowestSrc = stats[outputFormat][0];
-        let sizes = "100vw"; // Make sure you customize this!
+        let lowestSrc = stats["jpeg"][2];
+        let sizes = "(min-width: 320px) 33.3vw, (min-width: 1024px) 66.6vw, 100vw";
     
         // Iterate over formats and widths
         return `<picture>
@@ -71,6 +77,7 @@ module.exports = function (eleventyConfig) {
               width="${lowestSrc.width}"
               height="${lowestSrc.height}"
               alt="${alt}"
+              sizes="${sizes}"
               loading="lazy">
           </picture>`;
         });

@@ -9,7 +9,7 @@
         "avatar": "/images/blog/author.jpg"
     },
     "images": {
-        "logo": "/images/logo.svg",
+        "logo": "/images/svg/logo.svg",
         "logo_height": "h-24",
         "favicon": "/images/favicon.ico",
         "twitter": "/images/meta/twitter.jpg",

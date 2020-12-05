@@ -34,7 +34,7 @@ main ul {
   @apply mb-8 list-disc pl-5;
 }
 code {
-  @apply rounded;
+  @apply rounded whitespace-pre-line break-all;
 }
 a {
   @apply transition duration-300 ease-in-out;
