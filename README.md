@@ -8,7 +8,7 @@ Based on Skeleventy, I wanted a simple boilerplate that included the latest vers
 - Desktop nav with dropdowns
 - Build a blog view
 - ~~Contact form~~
-- Add [eleventy-img](https://github.com/11ty/eleventy-img)
+- ~~Add [eleventy-img](https://github.com/11ty/eleventy-img)~~
 
 ## Building and Running 
 
