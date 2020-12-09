@@ -1,6 +1,12 @@
 const Image = require("@11ty/eleventy-img");
  
 module.exports = function (eleventyConfig) {
+  // Set Browsersync options
+    eleventyConfig.setWatchThrottleWaitTime(1000); // in milliseconds, delay rebuild, increase if blank white page appears.
+    // BrowserSync options
+  eleventyConfig.setBrowserSyncConfig({
+    notify: true
+  });
   eleventyConfig.addWatchTarget("./_tmp/style.css");
 
   eleventyConfig.addPassthroughCopy({ "./_tmp/style.css": "./style.css" });
