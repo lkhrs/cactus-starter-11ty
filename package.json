@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "eleventy --serve --config=eleventy.config.js & postcss styles/tailwind.css --o _tmp/style.css --watch",
-    "production": "ELEVENTY_PRODUCTION=true eleventy --config=eleventy.config.js & postcss styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
+    "production": "ELEVENTY_PRODUCTION=true eleventy --config=eleventy.config.js & NODE_ENV=production postcss styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
   },
   "keywords": [],
   "author": "",
