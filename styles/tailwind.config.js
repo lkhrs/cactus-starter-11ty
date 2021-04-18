@@ -1,13 +1,17 @@
 module.exports = {
+  mode: 'jit',
   purge: {
-    content: ["_site/**/*.html"],
+    content: [
+      "site/**/*.html",
+      "site/**/*.njk",
+      "site/**/*.md"
+    ],
     options: {
       whitelist: [],
     },
   },
-    theme: {
-        
-      extend: {
+  theme: {
+    extend: {
         colors: {
           change: "transparent"
         },
@@ -19,8 +23,8 @@ module.exports = {
               "0%": { opacity: 0, transform: 'translateY(-50%)'},
               "100%": { opacity: 1, transform: 'translateY(0)'}
             }
-          },
-      }
+          }
+    }
     },
     variants: {},
     plugins: [],

@@ -4,22 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "eleventy --serve --config=eleventy.config.js & postcss styles/tailwind.css --o _tmp/style.css --watch",
-    "production": "ELEVENTY_PRODUCTION=true eleventy --config=eleventy.config.js & NODE_ENV=production postcss styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
+    "dev": "NODE_ENV=development postcss styles/tailwind.css --o _site/style.css --watch & eleventy --serve --config=eleventy.config.js",
+    "production": "eleventy --config=eleventy.config.js & NODE_ENV=production postcss styles/tailwind.css --o _site/style.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-img": "^0.8.3",
     "alpinejs": "^2.8.2",
     "autoprefixer": "^10.2.5",
     "clean-css-cli": "^5.2.2",
-    "postcss": "^8.2.9",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.1.1"
   },
   "dependencies": {
-    "@11ty/eleventy-img": "^0.8.3"
+    "@fullhuman/postcss-purgecss": "^3.1.3"
   }
 }
