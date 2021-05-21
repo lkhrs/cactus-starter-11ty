@@ -2,6 +2,8 @@
 
 Based on Skeleventy, I wanted a simple boilerplate that included the latest version of Tailwind and was easy to update.
 
+[Demo](https://cactus-starter-11ty.pages.dev)
+
 ## Todo
 
 - ~~Mobile nav~~
