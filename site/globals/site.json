@@ -10,7 +10,6 @@
     },
     "images": {
         "logo": "/images/svg/logo.svg",
-        "logo_height": "h-24",
         "favicon": "/images/favicon.ico",
         "twitter": "/images/meta/twitter.jpg",
         "og": "/images/meta/og.jpg"

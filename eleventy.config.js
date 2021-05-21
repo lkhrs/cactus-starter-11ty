@@ -74,39 +74,30 @@ module.exports = function (eleventyConfig) {
 
     // Eleventy-img config
 
-async function imageShortcode(src, alt, sizes = '40vw, 60vw, 100vw') {
-  if (alt === undefined) {
-    // You bet we throw an error on missing alt (alt="" works okay)
-    throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
-  }
-  // Do NOT use AVIF yet - adds 30s per size to build time 03/2021
-  // Should I disable JPEG altogether and just use webp?
-  // Support JPEG until 2022, Safari on iOS only recently started supporting it 11/2020
+async function imageShortcode(src, alt, sizes = "40vw, 60vw, 100vw") {
   let metadata = await Image(src, {
-    widths: [1000],
-    formats: ["webp", "jpeg"],
-    outputDir: "./_site/img/"
+    widths: [300, 1000],
+    formats: ["svg", "webp", "jpeg"],
+    svgShortCircuit: true,
+    svgAllowUpscale: true,
+    outputDir: "_site/img/"
   });
 
-  let lowsrc = metadata.jpeg[0];
+  let imageAttributes = {
+    alt,
+    sizes,
+    loading: "lazy",
+    decoding: "async",
+  };
 
-  return `<picture>
-    ${Object.values(metadata).map(imageFormat => {
-      return `  <source type="${imageFormat[0].sourceType}" srcset="${imageFormat.map(entry => entry.srcset).join(", ")}" sizes="${sizes}">`;
-    }).join("\n")}
-      <img
-        src="${lowsrc.url}"
-        width = "${lowsrc.width}"
-        height = "${lowsrc.height}"
-        alt="${alt}"
-        loading="lazy"
-        decoding="async">
-    </picture>`;
+  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+  return Image.generateHTML(metadata, imageAttributes);
 }
 
-      eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-      eleventyConfig.addLiquidShortcode("image", imageShortcode);
-      eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+
+eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+eleventyConfig.addLiquidShortcode("image", imageShortcode);
+eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
     // Template formats
     return {

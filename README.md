@@ -23,7 +23,7 @@ Based on Skeleventy, I wanted a simple boilerplate that included the latest vers
 - Use of @apply in styles/tailwind.css for sane defaults.
 - Alpine.js
 - Optimized lazy-loaded images webp first with a jpeg fallback (throw in a 10mb file and don't worry about it!)
-- And responsive images in 2 sizes. Huge difference in file sizes on mobile compared to desktop.
+- And responsive images. Huge difference in file sizes on mobile compared to desktop.
 
 ## Building and Running 
 
