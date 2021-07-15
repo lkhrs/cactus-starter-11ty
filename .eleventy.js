@@ -68,7 +68,7 @@ module.exports = function (eleventyConfig) {
     // Pass through our icons
     eleventyConfig.addPassthroughCopy("images/icons")
     eleventyConfig.addPassthroughCopy({
-        "./node_modules/alpinejs/dist/alpine.js": "./js/alpine.js",
+        "./node_modules/alpinejs/dist/cdn.min.js": "./js/alpine.js",
       });
     // Plugins
 
